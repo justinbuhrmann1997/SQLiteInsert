@@ -15,11 +15,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Name= (EditText) findViewById(R.id.editText);
-        Pass= (EditText) findViewById(R.id.editText2);
+        Name= (EditText) findViewById(R.id.editName);
+        Pass= (EditText) findViewById(R.id.editPass);
         helper = new myDbAdapter(this);
     }
 
+
+    //
     public void addUser(View view)
     {
         Toast.makeText(this,"Running", Toast.LENGTH_LONG).show();
@@ -28,10 +30,14 @@ public class MainActivity extends AppCompatActivity {
         long identity = helper.insertData(t1,t2);
         if(identity<0)
         {
-            Message.message(context,"Unsuccessful");
+            Message.message(this.getApplicationContext(),"Unsuccessful");
         } else
         {
-            Message.message(context,"Successful");
+            Message.message(this.getApplicationContext(),"Successful");
         }
+    }
+
+    public void viewdata(View view) {
+
     }
 }
